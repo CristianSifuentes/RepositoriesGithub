@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GithubComponent } from './github/github.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { GithubComponent } from './github/github.component';
     MaterialModule,
     FlexLayoutModule,
     BrowserAnimationsModule, 
-    NoopAnimationsModule
+    NoopAnimationsModule, AppRoutingModule
 
   ],
   providers: [],
