@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GithubComponent } from './github/github.component';
 
@@ -12,7 +14,11 @@ import { GithubComponent } from './github/github.component';
     GithubComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    MaterialModule,
+    FlexLayoutModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

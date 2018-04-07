@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
+
+html, body {
+  /*flex-direction: column;*/
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+// app shell
+.app {
+  height: 100vh; // view port height units
+}
+
+
+  /* Tooblar */
+md-toolbar{
+  z-index: 10;
+}
+md-toolbar-row {
+  justify-content: space-between; // this is based on flex
+}
