@@ -14,14 +14,16 @@ import {
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule { }

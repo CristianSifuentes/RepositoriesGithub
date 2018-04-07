@@ -17,7 +17,8 @@ import { GithubComponent } from './github/github.component';
     BrowserModule,
     HttpClientModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],
