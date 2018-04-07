@@ -8,12 +8,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GithubComponent } from './github/github.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GithubComponent
+    GithubComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
