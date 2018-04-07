@@ -10,6 +10,7 @@ import { GithubComponent } from './github/github.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 
+import { GithubService } from './services/github.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { HomeComponent } from './components/home/home.component';
     NoopAnimationsModule, AppRoutingModule
 
   ],
-  providers: [],
+  providers: [GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

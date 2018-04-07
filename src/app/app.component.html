@@ -60,6 +60,9 @@
                     <div class="app-body">
                             <router-outlet></router-outlet>
                           </div>
+                          <ul>
+                            <li *ngFor="let repositorie of repositories">{{repositorie.name}}</li>
+                          </ul>
              </mat-sidenav-container>
                     
        
