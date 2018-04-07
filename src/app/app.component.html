@@ -1,52 +1,73 @@
-<div fxLayout="column" fxFlex>
+<section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
 
         <mat-toolbar color="primary" class="mat-elevation-z16">
 
-            Github
+                <button *ngIf="open | async" mat-icon-button (click)="sidenav.toggle()">
+                        <mat-icon>menu</mat-icon>
+                      </button>
+                      <span>{{title}}</span>
+                      <span class="fill-remaining-space"></span>
+                      <button mat-icon-button [mat-menu-trigger-for]="menu">
+                            <mat-icon>more_vert</mat-icon>
+                          </button>
         </mat-toolbar>
-        <mat-sidenav-container class="example-container" *ngIf="shouldRun">
-                <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-                <mat-sidenav-content>Main content</mat-sidenav-content>
-              </mat-sidenav-container>
+        <mat-menu x-position="before" #menu="matMenu">
+                <button mat-menu-item>Salir</button>
+                <button mat-menu-item >Cambiar Tema</button>
+                <button mat-menu-item>Free Hugs!</button>
+                <button mat-menu-item>Acerda de</button>
+              </mat-menu>
+
+              <mat-sidenav-container fxFlex>
+
+                    <mat-sidenav mode="side" [opened]="true" #sidenav class="mat-elevation-z6">
+
+                      <mat-nav-list>
+                        <div fxLayout="row">
+
+              
+                        </div>
+                        <div fxLayout="column">
+                          <a mat-list-item>
+                            <mat-icon mat-list-icon>dashboard</mat-icon>
+                            <span mat-line>Inicio</span>
+                            <span mat-line class="secondary">Ver fotos</span>
+                          </a>
+                          <a mat-list-item>
+                            <mat-icon mat-list-icon>camera_enhance</mat-icon>
+                            <span mat-line>Fotos</span>
+                            <span mat-line class="secondary">Mis fotos</span>
+                          </a>
+                          <a mat-list-item >
+                            <mat-icon mat-list-icon>backup</mat-icon>
+                            <span mat-line>Subir</span>
+                            <span mat-line class="secondary">Añadir nuevas fotos</span>
+                          </a>
+                          <a mat-list-item >
+                            <mat-icon mat-list-icon>flight_takeoff</mat-icon>
+                            <span mat-line>Viajeros</span>
+                            <span mat-line class="secondary">Añadir nuevos viajeros</span>
+                          </a>
+                          <a mat-list-item >
+                            <mat-icon mat-list-icon>notifications_active</mat-icon>
+                            <span mat-line>Solicitudes</span>
+                            <span mat-line class="secondary">Aceptar nuevos viajeros</span>
+                          </a>
+                        </div>
+                      </mat-nav-list>
+                    </mat-sidenav>
+
+                    <!--div class="app-body">
+                            <router-outlet (activate)="onActivate($event)"></router-outlet>
+                          </div-->
+
+             </mat-sidenav-container>
+                    
+       
+
       
-      </div>
-
-<!--section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-        <mat-toolbar color="primary" class="mat-elevation-z16">
-            z
-        </mat-toolbar>
-
-        <mat-sidenav-container fxFlex>
-
-
-        </mat-sidenav-container>
-</section-->
-
-<!--div>
-    <mat-toolbar color="primary">
-      <span><mat-icon>mood</mat-icon></span>
   
-      <span>Yay, Material in Angular 2!</span>
-  
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-    </mat-toolbar>
-    <mat-menu x-position="before" #menu="matMenu">
-      <button mat-menu-item>Option 1</button>
-      <button mat-menu-item>Option 2</button>
-    </mat-menu>
-  
-    <mat-card>
-      <button mat-button>All</button>
-      <button mat-raised-button>Of</button>
-      <button mat-raised-button color="primary">The</button>
-      <button mat-raised-button color="accent">Buttons</button>
-    </mat-card>
-  
-    <span class="done">
-      <button mat-fab>
-        <mat-icon>check circle</mat-icon>
-      </button>
-    </span>
-  </div-->
+</section>
+
+
+

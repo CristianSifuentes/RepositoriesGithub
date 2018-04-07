@@ -1,0 +1,20 @@
+:host {
+    .flex-container {
+        .fill-remaining-space {
+            flex: 1 1 auto;
+          }
+
+          md-sidenav-container,
+          .my-content {
+            margin-top: 2px;
+            width: 100%;
+            height: 100%;
+          }
+          md-sidenav-layout {
+            background: rgba(0, 0, 0, .03);
+          }
+          md-sidenav {
+            width: 25vw;
+          }
+    }
+}

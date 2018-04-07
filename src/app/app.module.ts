@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule  } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GithubComponent } from './github/github.component';
@@ -18,7 +19,8 @@ import { GithubComponent } from './github/github.component';
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    NoopAnimationsModule
 
   ],
   providers: [],
