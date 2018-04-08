@@ -28,12 +28,16 @@
               
                         </div>
                         <div fxLayout="column">
-                          <a mat-list-item>
-                            <mat-icon mat-list-icon>dashboard</mat-icon>
+                          <a mat-list-item  [routerLink]="['/home']">
+                            <mat-icon mat-list-icon>grain</mat-icon>
                             <span mat-line>Inicio</span>
-                            <span mat-line class="secondary">Ver fotos</span>
+                            <span mat-line class="secondary">Ver repositorios</span>
                           </a>
-
+                          <a mat-list-item  [routerLink]="['/following']">
+                            <mat-icon mat-list-icon>school</mat-icon>
+                            <span mat-line>Inicio</span>
+                            <span mat-line class="secondary">Ver following</span>
+                          </a>
                         </div>
                       </mat-nav-list>
                     </mat-sidenav>
@@ -41,9 +45,9 @@
                     <div class="app-body">
                             <router-outlet></router-outlet>
                           </div>
-                          <ul>
+                          <!--ul>
                             <li *ngFor="let repositorie of repositories">{{repositorie.name}}</li>
-                          </ul>
+                          </ul-->
              </mat-sidenav-container>
                     
        

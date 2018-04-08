@@ -6,17 +6,17 @@ import { MaterialModule } from './material/material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { GithubComponent } from './github/github.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 
 import { GithubService } from './services/github.service';
+import { FollowingComponent } from './components/following/following.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GithubComponent,
-    HomeComponent
+    HomeComponent,
+    FollowingComponent
   ],
   imports: [
     BrowserModule,
