@@ -20,7 +20,7 @@
 
               <mat-sidenav-container fxFlex>
 
-                    <mat-sidenav mode="side" [opened]="true" #sidenav class="mat-elevation-z6">
+                    <mat-sidenav mode="side" [opened]="open | async" #sidenav class="mat-elevation-z6">
 
                       <mat-nav-list>
                         <div fxLayout="row">
@@ -33,26 +33,7 @@
                             <span mat-line>Inicio</span>
                             <span mat-line class="secondary">Ver fotos</span>
                           </a>
-                          <!--a mat-list-item>
-                            <mat-icon mat-list-icon>camera_enhance</mat-icon>
-                            <span mat-line>Fotos</span>
-                            <span mat-line class="secondary">Mis fotos</span>
-                          </a>
-                          <a mat-list-item >
-                            <mat-icon mat-list-icon>backup</mat-icon>
-                            <span mat-line>Subir</span>
-                            <span mat-line class="secondary">Añadir nuevas fotos</span>
-                          </a>
-                          <a mat-list-item >
-                            <mat-icon mat-list-icon>flight_takeoff</mat-icon>
-                            <span mat-line>Viajeros</span>
-                            <span mat-line class="secondary">Añadir nuevos viajeros</span>
-                          </a>
-                          <a mat-list-item >
-                            <mat-icon mat-list-icon>notifications_active</mat-icon>
-                            <span mat-line>Solicitudes</span>
-                            <span mat-line class="secondary">Aceptar nuevos viajeros</span>
-                          </a-->
+
                         </div>
                       </mat-nav-list>
                     </mat-sidenav>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from './services/github.service';
+import { ObservableMedia } from '@angular/flex-layout';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +12,7 @@ import { GithubService } from './services/github.service';
 export class AppComponent implements OnInit {
   title = 'My Github App ';
   public repositories;
-
+  public open: Observable<boolean>;
 
   
   constructor(private _githubService :GithubService){
@@ -25,9 +28,10 @@ export class AppComponent implements OnInit {
             // the third argument is a function which runs on completion
             () => console.log('done loading foods')
           );
+          
   }
 
   ngOnInit(){
-
+    this.open = Observable.of(true);
   }
 }
