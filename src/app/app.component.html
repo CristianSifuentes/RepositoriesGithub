@@ -24,7 +24,19 @@
 
                       <mat-nav-list>
                         <div fxLayout="row">
-
+                            <mat-card id="user">
+                                <mat-card-title>
+                                  <div fxLayout="row" fxLayoutAlign="center center">
+                                      <img class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}">
+                                  </div>
+                                </mat-card-title>
+                                <mat-card-content>
+                                  <p>Hello, Cristian Sifuentes Covarrubias </p>
+                                </mat-card-content>
+                                <mat-card-actions class="mat-card-actions">
+                                  <mat-icon>train</mat-icon>
+                                </mat-card-actions>
+                              </mat-card>
               
                         </div>
                         <div fxLayout="column">
@@ -45,15 +57,7 @@
                     <div class="app-body">
                             <router-outlet></router-outlet>
                           </div>
-                          <!--ul>
-                            <li *ngFor="let repositorie of repositories">{{repositorie.name}}</li>
-                          </ul-->
              </mat-sidenav-container>
-                    
-       
-
-      
-  
 </section>
 
 

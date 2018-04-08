@@ -1,6 +1,13 @@
 :host {
     .flex-container {
-        .fill-remaining-space {
+        .avatar-wrapper {
+          background: #fff;
+          border-radius: 50%;
+          box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.14);
+          height: 160px;
+          width: 160px;
+        }
+         .fill-remaining-space {
             flex: 1 1 auto;
           }
 
