@@ -11,19 +11,20 @@ import 'rxjs/add/observable/of';
 })
 export class FollowingComponent implements OnInit {
 
-  public repositories;
+  public following: any;
   public cols: Observable<number>;
 
-  constructor(private _githubService :GithubService,  private observableMedia: ObservableMedia) {
 
-    this._githubService.getRepositories2().subscribe(
+  constructor(private _githubService :GithubService,  private observableMedia: ObservableMedia) {
+    this._githubService.getFollowing().subscribe(
       // the first argument is a function which runs on success
-      data => { this.repositories = data},
+      data => { this.following = data},
       // the second argument is a function which runs on error
       err => console.error(err),
       // the third argument is a function which runs on completion
-      () => console.log(this.repositories)
+      () => console.log('done loading foods')
     );
+
    }
 
    ngOnInit() {
@@ -33,7 +34,7 @@ export class FollowingComponent implements OnInit {
     } else if (this.observableMedia.isActive('sm') || this.observableMedia.isActive('md')) {
       this.cols = Observable.of(2);
     } else if (this.observableMedia.isActive('lg') || this.observableMedia.isActive('xl')) {
-      this.cols = Observable.of(3);
+      this.cols = Observable.of(4);
     }
     // observe changes
     this.observableMedia.asObservable()
@@ -46,9 +47,8 @@ export class FollowingComponent implements OnInit {
             return this.cols = Observable.of(2);
           case 'lg':
           case 'xl':
-            return this.cols = Observable.of(3);
+            return this.cols = Observable.of(4);
         }
       });
   }
-
 }

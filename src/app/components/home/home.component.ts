@@ -12,17 +12,14 @@ import 'rxjs/add/observable/of';
 export class HomeComponent implements OnInit {
   
   
-  public repositories;
+  public repositories: any;
   public cols: Observable<number>;
 
 
   constructor(private _githubService :GithubService,  private observableMedia: ObservableMedia) {
     this._githubService.getRepositories().subscribe(
-      // the first argument is a function which runs on success
       data => { this.repositories = data},
-      // the second argument is a function which runs on error
-      err => console.error(err),
-      // the third argument is a function which runs on completion
+      err => console.error(err), 
       () => console.log('done loading foods')
     );
 

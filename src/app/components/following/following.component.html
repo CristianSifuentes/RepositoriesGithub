@@ -1,40 +1,17 @@
-<!--section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-    <div fxLayout="row" fxLayoutAlign="center" class="card-container">
-      <div fxFlex="100%" fxFlex.mat="100%" fxFlex.lg="100%">
-        <mat-card *ngFor="let repositorie of repositories">
-          <mat-card-header>
-            <img mat-card-avatar src="{{ repositorie.owner.avatar_url }}">
-            <mat-card-title>{{ repositorie.name }}</mat-card-title>
-            <mat-card-subtitle>{{ repositorie.name }}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="{{ repositorie.owner.avatar_url }}" alt="{{ repositorie.name }}">
-          <mat-card-content>
-            {{repositorie.description}}
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </div>
-  </section-->
-  
 
-  <mat-grid-list [cols]="cols | async" gutterSize="15px" class="grid">
-      <mat-grid-tile *ngFor="let repositorie of repositories">
-          <mat-card >
-              <mat-card-header>
-                  <mat-card-title>{{ repositorie.name }}</mat-card-title>
-                  <mat-card-subtitle>{{ repositorie.description }}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                    {{ repositorie.language }}
-                  </mat-card-content>
-                  <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
-                  </mat-card-actions>
-            </mat-card>
-      </mat-grid-tile>
-  </mat-grid-list>
+<div fxLayout="row" fxLayoutAlign="center" class="card-container">
+  <div fxFlex="100%" fxFlex.mat="100%" fxFlex.lg="100%">
+      <mat-grid-list [cols]="cols | async" gutterSize="15px" class="grid">
+          <mat-grid-tile *ngFor="let follow of following">
+              <img src="{{ follow.avatar_url }}" alt="follow of the super follow {{follow.login}}">
+              <mat-grid-tile-footer>
+                  <h3 mat-line>{{following.name}}</h3>
+                  <span mat-line>{{following.full_name}}</span>
+                  <button mat-icon-button>
+                                        <mat-icon>info</mat-icon>
+                                      </button>
+              </mat-grid-tile-footer>
+          </mat-grid-tile>
+      </mat-grid-list>
+  </div>
+</div>

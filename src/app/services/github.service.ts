@@ -7,7 +7,7 @@ export class GithubService {
   private username = "CristianSifuentes";
   private client_id = "29431fe2ad6a2b43bf4c";
   private client_secret = "e3713c5c4c40d5bb5867e085f9ab3b6642cd7da5";
-  private url = "https://api.github.com/users/CristianSifuentes/following";
+  private url_following = "https://api.github.com/users/CristianSifuentes/following";
   private url_repos = "  https://api.github.com/users/CristianSifuentes/repos";
   private urlindetity = "https://api.github.com/users/CristianSifuentes?client_id=29431fe2ad6a2b43bf4c&client_secret=e3713c5c4c40d5bb5867e085f9ab3b6642cd7da5";
 
@@ -20,12 +20,12 @@ export class GithubService {
           .get(this.urlindetity);
       }
 
-    getRepositories(): Observable<any> {
+    getFollowing(): Observable<any> {
       return this.http
-        .get(this.url);
+        .get(this.url_following);
     }
 
-    getRepositories2(): Observable<any> {
+    getRepositories(): Observable<any> {
       return this.http
         .get(this.url_repos);
     }
