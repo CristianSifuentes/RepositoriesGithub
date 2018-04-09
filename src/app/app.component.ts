@@ -3,6 +3,7 @@ import { GithubService } from './services/github.service';
 import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { ProgressBarService } from './services/progress-bar.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,18 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'My Github App';
+  public title = 'My Github App';
   public profile:any;
   public open: Observable<boolean>;
+  public progressBarMode: string;
 
   constructor(
     private _githubService :GithubService, 
-    private observableMedia: ObservableMedia,){
-   console.log("llamar al servicio");
+    private observableMedia: ObservableMedia,
+    private progressBarService: ProgressBarService){
+      this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+        this.progressBarMode = mode;
+      });
           this._githubService.getProfile().subscribe(
             data => { this.profile = data},
             err => console.error(err),

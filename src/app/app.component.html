@@ -12,6 +12,13 @@
                             <mat-icon>more_vert</mat-icon>
                           </button>
         </mat-toolbar>
+        
+        <section class="progress-bar">
+          <mat-progress-bar [color]="'primary'" [mode]="progressBarMode">
+          </mat-progress-bar>
+        </section>
+      
+
         <mat-menu x-position="before" #menu="matMenu">
                 <button mat-menu-item>Salir</button>
                 <button mat-menu-item >Cambiar Tema</button>
