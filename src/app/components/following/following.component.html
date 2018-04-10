@@ -3,10 +3,10 @@
   <div fxFlex="100%" fxFlex.mat="100%" fxFlex.lg="100%">
       <mat-grid-list [cols]="cols | async" gutterSize="15px" class="grid">
           <mat-grid-tile *ngFor="let follow of following">
-              <img src="{{ follow.avatar_url }}" alt="follow of the super follow {{follow.login}}">
+              <img src="{{ follow.avatar_url }}" alt="follow of the super follow {{ follow.login }}">
               <mat-grid-tile-footer>
-                  <h3 mat-line>{{following.name}}</h3>
-                  <span mat-line>{{following.full_name}}</span>
+                  <h3 mat-line>{{ follow.name }}</h3>
+                  <span mat-line>{{ follow.full_name }}</span>
                   <button mat-icon-button>
                                         <mat-icon>info</mat-icon>
                                       </button>
