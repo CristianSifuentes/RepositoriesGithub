@@ -10,7 +10,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 
 import { GithubService } from './services/github.service';
+import { ProgressBarService } from './services/progress-bar.service';
 import { FollowingComponent } from './components/following/following.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { FollowingComponent } from './components/following/following.component';
     NoopAnimationsModule, AppRoutingModule
 
   ],
-  providers: [GithubService],
+  providers: [GithubService, ProgressBarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

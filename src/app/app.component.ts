@@ -4,6 +4,7 @@ import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { ProgressBarService } from './services/progress-bar.service';
+import { Profile } from './shared/profile.model';
 
 @Component({
   selector: 'app-root',
@@ -12,24 +13,34 @@ import { ProgressBarService } from './services/progress-bar.service';
 })
 export class AppComponent implements OnInit {
   public title = 'My Github App';
-  public profile:any;
+  public profile: Profile = null;;
   public open: Observable<boolean>;
   public progressBarMode: string;
 
   constructor(
     private _githubService :GithubService, 
     private observableMedia: ObservableMedia,
-    private progressBarService: ProgressBarService){
-      this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+    private progressBarService: ProgressBarService
+  ){
+      /*this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
         this.progressBarMode = mode;
-      });
-          this._githubService.getProfile().subscribe(
+      });*/
+          /*this._githubService.getProfile().subscribe(
             data => { this.profile = data},
             err => console.error(err),
             () => console.log('done loading profile')
-          );       
+
+          );*/  
+          
+          this._githubService.getProfile().subscribe((profile: Profile) => {
+            this.profile = profile;
+          });
   }
+
+
   ngOnInit(){
+
+   
     if (this.observableMedia.isActive('xs')) {
       this.open = Observable.of(false);
      

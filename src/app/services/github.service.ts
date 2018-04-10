@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import { Profile } from './../shared/profile.model';
 
 @Injectable()
 export class GithubService {
@@ -27,10 +28,21 @@ export class GithubService {
     this.request$ = new EventEmitter();
    }
 
-     getProfile(): Observable<any> {
+     /*getProfile(): Observable<any> {
         return this.http
           .get(this.urlindetity);
+      }*/
+      getProfile(): Observable<Profile> {
+        this.request$.emit('starting');
+        return this.http
+          .get(this.urlindetity)
+          .map(response => {
+            this.request$.emit('finished');
+            return response;
+          })
+          .catch(error => this.handleError(error));
       }
+
 
     getFollowing(): Observable<any> {
       this.request$.emit('starting');
@@ -43,9 +55,20 @@ export class GithubService {
         .catch(error => this.handleError(error));
     }
 
-    getRepositories(): Observable<any> {
+    /*getRepositories(): Observable<any> {
       return this.http
         .get(this.url_repos);
+    }*/
+
+    getRepositories(): Observable<any> {
+      this.request$.emit('starting');
+      return this.http
+        .get(this.url_repos)
+        .map(response => {
+          this.request$.emit('finished');
+          return response;
+        })
+        .catch(error => this.handleError(error));
     }
 
 }

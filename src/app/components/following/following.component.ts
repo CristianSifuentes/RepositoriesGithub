@@ -15,14 +15,13 @@ export class FollowingComponent implements OnInit {
   public cols: Observable<number>;
 
 
-  constructor(private _githubService :GithubService,  private observableMedia: ObservableMedia) {
-    this._githubService.getFollowing().subscribe(
-      // the first argument is a function which runs on success
-      data => { this.following = data},
-      // the second argument is a function which runs on error
-      err => console.error(err),
-      // the third argument is a function which runs on completion
-      () => console.log('done loading foods')
+  constructor(private _githubService :GithubService,  
+              private observableMedia: ObservableMedia) {
+
+    this._githubService.getFollowing().subscribe(   
+      data => { this.following = data},    
+      err => console.error(err),  
+      () => console.log('done loading following')
     );
 
    }
