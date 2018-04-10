@@ -5,11 +5,15 @@
           <mat-grid-tile *ngFor="let follow of following">
               <img src="{{ follow.avatar_url }}" alt="follow of the super follow {{ follow.login }}">
               <mat-grid-tile-footer>
-                  <h3 mat-line>{{ follow.name }}</h3>
-                  <span mat-line>{{ follow.full_name }}</span>
-                  <button mat-icon-button>
-                                        <mat-icon>info</mat-icon>
-                                      </button>
+
+                <h3 matLine> {{ follow.login }} </h3>
+                <p matLine>
+                  <span> {{ follow.html_url  }} </span>
+                </p>  
+                 <button mat-icon-button>
+                        <mat-icon  (click)="onNavigate(follow.html_url)">subdirectory_arrow_right</mat-icon>
+                 </button>
+
               </mat-grid-tile-footer>
           </mat-grid-tile>
       </mat-grid-list>
