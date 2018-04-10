@@ -59,4 +59,10 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  onNavigate(url: any){
+    if (url) { window.open(url, "_blank");}
+
+   
+  }
+
 }

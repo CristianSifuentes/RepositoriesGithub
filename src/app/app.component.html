@@ -6,6 +6,9 @@
     </button>
     <span>{{title}}</span>
     <span class="fill-remaining-space"></span>
+    <button *ngIf="open_profile | async" mat-icon-button [mat-menu-trigger-for]="menuprofile">
+      <mat-icon>face</mat-icon>
+    </button>
     <button mat-icon-button [mat-menu-trigger-for]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
@@ -49,7 +52,7 @@
             <mat-card-title>
               <div fxLayout="row" fxLayoutAlign="center center">
                 <div *ngIf="profile;else other_content">
-                  <img class="avatar-wrapper" fxLayoutAlign="center center" md-card-avatar src="{{ profile.avatar_url }}">
+                  <img class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}">
                 </div>
                 <ng-template #other_content>
                   <mat-icon>person</mat-icon>
