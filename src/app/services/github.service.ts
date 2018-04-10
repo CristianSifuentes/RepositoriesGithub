@@ -5,17 +5,15 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { Profile } from './../shared/profile.model';
+import { Repositories } from './../shared//repositories.model';
+import { Following } from './../shared/following.model';
+import { AppConfig } from './../config/app.config';
 
 @Injectable()
 export class GithubService {
   public request$: EventEmitter<any>;
-  private username = "CristianSifuentes";
-  private client_id = "29431fe2ad6a2b43bf4c";
-  private client_secret = "e3713c5c4c40d5bb5867e085f9ab3b6642cd7da5";
-  private url_following = "https://api.github.com/users/CristianSifuentes/following";
-  private url_repos = "  https://api.github.com/users/CristianSifuentes/repos";
-  private urlindetity = "https://api.github.com/users/CristianSifuentes?client_id=29431fe2ad6a2b43bf4c&client_secret=e3713c5c4c40d5bb5867e085f9ab3b6642cd7da5";
-
+  private urlGithub: string; 
+  
   private handleError(error: any) {
     this.request$.emit('finished');
     if (error instanceof Response) {
@@ -26,16 +24,16 @@ export class GithubService {
 
   constructor( private http: HttpClient) {
     this.request$ = new EventEmitter();
+    this.urlGithub = AppConfig.endpoints.repositories;
    }
 
-     /*getProfile(): Observable<any> {
-        return this.http
-          .get(this.urlindetity);
-      }*/
-      getProfile(): Observable<Profile> {
+      getProfile(
+         username: string,
+         client_id: string,
+         client_secret: string): Observable<Profile> {
         this.request$.emit('starting');
         return this.http
-          .get(this.urlindetity)
+          .get(this.urlGithub+"/"+ username +"?client_id="+client_id+"&client_secret="+client_secret)
           .map(response => {
             this.request$.emit('finished');
             return response;
@@ -44,10 +42,13 @@ export class GithubService {
       }
 
 
-    getFollowing(): Observable<any> {
+    getFollowing(
+      username: string,
+      endpoint:string
+    ): Observable<Following> {
       this.request$.emit('starting');
       return this.http
-        .get(this.url_following)
+        .get(this.urlGithub+"/"+ username +"/"+endpoint)
         .map(response => {
           this.request$.emit('finished');
           return response;
@@ -55,15 +56,13 @@ export class GithubService {
         .catch(error => this.handleError(error));
     }
 
-    /*getRepositories(): Observable<any> {
-      return this.http
-        .get(this.url_repos);
-    }*/
 
-    getRepositories(): Observable<any> {
+
+    getRepositories( username: string,
+      endpoint:string): Observable<Repositories> {
       this.request$.emit('starting');
       return this.http
-        .get(this.url_repos)
+      .get(this.urlGithub+"/"+ username +"/"+endpoint)
         .map(response => {
           this.request$.emit('finished');
           return response;

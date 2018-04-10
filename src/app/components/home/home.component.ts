@@ -3,6 +3,7 @@ import { GithubService } from './../../services/github.service';
 import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { AppConfig } from './../../config/app.config';
 
 @Component({
   selector: 'app-home',
@@ -14,13 +15,18 @@ export class HomeComponent implements OnInit {
   
   public repositories: any;
   public cols: Observable<number>;
-
+  private repositoriesEndPoint: string;
+  private username: string;
 
   constructor(private _githubService :GithubService,  private observableMedia: ObservableMedia) {
-    this._githubService.getRepositories().subscribe(
+   
+    this.repositoriesEndPoint = AppConfig.repos;
+    this.username = AppConfig.username;
+
+    this._githubService.getRepositories(this.username, this.repositoriesEndPoint).subscribe(
       data => { this.repositories = data},
       err => console.error(err), 
-      () => console.log('done loading foods')
+      () => console.log('done loading repositories')
     );
 
    }

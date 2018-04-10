@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { ProgressBarService } from './services/progress-bar.service';
 import { Profile } from './shared/profile.model';
+import { AppConfig } from './config/app.config';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,9 @@ export class AppComponent implements OnInit {
   public profile: Profile = null;;
   public open: Observable<boolean>;
   public progressBarMode: string;
+  private username: string;
+  private client_id: string;
+  private client_secret: string;
 
   constructor(
     private _githubService :GithubService, 
@@ -30,9 +34,11 @@ export class AppComponent implements OnInit {
             err => console.error(err),
             () => console.log('done loading profile')
 
-          );*/  
-          
-          this._githubService.getProfile().subscribe((profile: Profile) => {
+          );*/
+          this.username  = AppConfig.username;
+          this.client_id  = AppConfig.client_id;
+          this.client_secret  = AppConfig.client_secret;
+          this._githubService.getProfile(this.username, this.client_id, this.client_secret).subscribe((profile: Profile) => {
             this.profile = profile;
           });
   }

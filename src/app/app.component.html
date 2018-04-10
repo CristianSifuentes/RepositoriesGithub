@@ -57,7 +57,12 @@
               </div>
             </mat-card-title>
             <mat-card-content>
-              <p>Hello, Cristian Sifuentes Covarrubias </p>
+              <div *ngIf="profile;else other_content2">
+                <p>{{ profile.name }}  {{ profile.location}}  {{profile.email}} {{profile.bio}}</p>
+              </div>
+              <ng-template #other_content2>
+                <p>Hola</p>
+              </ng-template>
             </mat-card-content>
             <mat-card-actions class="mat-card-actions">
               <mat-icon>train</mat-icon>

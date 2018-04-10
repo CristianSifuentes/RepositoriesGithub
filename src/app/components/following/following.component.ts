@@ -3,6 +3,7 @@ import { GithubService } from './../../services/github.service';
 import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { AppConfig } from './../../config/app.config';
 
 @Component({
   selector: 'app-following',
@@ -13,12 +14,16 @@ export class FollowingComponent implements OnInit {
 
   public following: any;
   public cols: Observable<number>;
-
+  private followingEndPoint: string;
+  private username: string;
 
   constructor(private _githubService :GithubService,  
               private observableMedia: ObservableMedia) {
+                
+                this.followingEndPoint = AppConfig.following;
+                this.username = AppConfig.username;
 
-    this._githubService.getFollowing().subscribe(   
+    this._githubService.getFollowing(this.username, this.followingEndPoint).subscribe(   
       data => { this.following = data},    
       err => console.error(err),  
       () => console.log('done loading following')

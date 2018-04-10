@@ -1,12 +1,14 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { GithubService } from './github.service';
 
+ 
 @Injectable()
 export class ProgressBarService {
 
   public updateProgressBar$: EventEmitter<any>;
   private requestsRunning: number = 0;
-  
+  private reprositoresUrl: string;
+
   constructor(
 
     private githubService: GithubService
