@@ -45,7 +45,7 @@ export class GithubService {
     getFollowing(
       username: string,
       endpoint:string
-    ): Observable<Following> {
+    ): Observable<Following[]> {
       this.request$.emit('starting');
       return this.http
         .get(this.urlGithub+"/"+ username +"/"+endpoint)
@@ -59,7 +59,7 @@ export class GithubService {
 
 
     getRepositories( username: string,
-      endpoint:string): Observable<Repositories> {
+      endpoint:string): Observable<Repositories[]> {
       this.request$.emit('starting');
       return this.http
       .get(this.urlGithub+"/"+ username +"/"+endpoint)

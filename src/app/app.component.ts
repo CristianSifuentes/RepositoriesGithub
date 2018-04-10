@@ -26,21 +26,19 @@ export class AppComponent implements OnInit {
     private observableMedia: ObservableMedia,
     private progressBarService: ProgressBarService
   ){
-      /*this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
-        this.progressBarMode = mode;
-      });*/
-          /*this._githubService.getProfile().subscribe(
-            data => { this.profile = data},
-            err => console.error(err),
-            () => console.log('done loading profile')
-
-          );*/
+          this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+            this.progressBarMode = mode;
+          });
           this.username  = AppConfig.username;
           this.client_id  = AppConfig.client_id;
           this.client_secret  = AppConfig.client_secret;
-          this._githubService.getProfile(this.username, this.client_id, this.client_secret).subscribe((profile: Profile) => {
+          this._githubService.getProfile(this.username, this.client_id, this.client_secret).subscribe(
+            (profile: Profile) => {
             this.profile = profile;
-          });
+            },
+            err => console.error(err),
+            () => console.log('done loading profile')
+          );
   }
 
 

@@ -4,6 +4,7 @@ import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { AppConfig } from './../../config/app.config';
+import { Repositories } from '../../shared/repositories.model';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { AppConfig } from './../../config/app.config';
 export class HomeComponent implements OnInit {
   
   
-  public repositories: any;
+  public repositories: Repositories[];
   public cols: Observable<number>;
   private repositoriesEndPoint: string;
   private username: string;
@@ -24,7 +25,9 @@ export class HomeComponent implements OnInit {
     this.username = AppConfig.username;
 
     this._githubService.getRepositories(this.username, this.repositoriesEndPoint).subscribe(
-      data => { this.repositories = data},
+      (repositories: Repositories[]) => {
+        this.repositories = repositories;
+        },
       err => console.error(err), 
       () => console.log('done loading repositories')
     );
