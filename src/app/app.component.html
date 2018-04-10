@@ -4,43 +4,73 @@
     <button *ngIf="open | async" mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+
     <span>{{title}}</span>
+
     <span class="fill-remaining-space"></span>
+
     <button *ngIf="open_profile | async" mat-icon-button [mat-menu-trigger-for]="menuprofile">
       <mat-icon>face</mat-icon>
     </button>
+
     <button mat-icon-button [mat-menu-trigger-for]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
+
   </mat-toolbar>
+
   <section class="progress-bar">
     <mat-progress-bar [color]="'primary'" [mode]="progressBarMode">
     </mat-progress-bar>
   </section>
+
   <mat-menu x-position="before" #menu="matMenu">
     <button mat-menu-item (click)="signOut()">Salir</button>
     <button mat-menu-item (click)="isDarkTheme=!isDarkTheme">Cambiar Tema</button>
     <button mat-menu-item>Free Hugs!</button>
     <button mat-menu-item>Acerda de</button>
   </mat-menu>
+
   <mat-menu x-position="before" #menuprofile="matMenu">
     <div fxLayout="row">
       <mat-card id="user">
         <mat-card-title>
           <div fxLayout="row" fxLayoutAlign="center center">
-              <!--img class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}"-->
+             <div *ngIf="profile;else other_content">
+                  <img class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}">
+                </div>
+                <ng-template #other_content>
+                  <mat-icon>person</mat-icon>
+                </ng-template>
           </div>
         </mat-card-title>
         <mat-card-content>
-          <p>dwdsdsd</p>
+            <div *ngIf="profile;else other_content2">
+                <p>{{ profile.name }}  {{ profile.location}}  {{profile.email}} {{profile.bio}}</p>
+              </div>
+              <ng-template #other_content2>
+                <p>Hola</p>
+              </ng-template>
         </mat-card-content>
-        <mat-card-actions class="mat-card-actions">
-          <mat-icon>train</mat-icon>
-        </mat-card-actions>
+            <mat-card-actions class="mat-card-actions">
+              <mat-icon>train</mat-icon>
+            </mat-card-actions>
       </mat-card>
 
+    
     </div>
-
+      <div fxLayout="column">
+          <a mat-list-item  [routerLink]="['/home']">
+            <mat-icon mat-list-icon>grain</mat-icon>
+            <span mat-line>Mis</span>
+            <span mat-line class="secondary">Repositorios</span>
+          </a>
+          <a mat-list-item  [routerLink]="['/following']">
+            <mat-icon mat-list-icon>school</mat-icon>
+            <span mat-line>Ver</span>
+            <span mat-line class="secondary">A quien sigo</span>
+          </a>
+        </div>
   </mat-menu>
 
   <mat-sidenav-container fxFlex>
