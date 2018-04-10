@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { AppConfig } from './../../config/app.config';
 import { Repositories } from '../../shared/repositories.model';
+import { ProgressBarService } from './../../services/progress-bar.service';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +19,13 @@ export class HomeComponent implements OnInit {
   public cols: Observable<number>;
   private repositoriesEndPoint: string;
   private username: string;
+  public progressBarMode: string;
+  
+  constructor(private _githubService :GithubService,  private observableMedia: ObservableMedia,   private progressBarService: ProgressBarService) {
+    this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+      this.progressBarMode = mode;
+    });
 
-  constructor(private _githubService :GithubService,  private observableMedia: ObservableMedia) {
-   
     this.repositoriesEndPoint = AppConfig.repos;
     this.username = AppConfig.username;
 

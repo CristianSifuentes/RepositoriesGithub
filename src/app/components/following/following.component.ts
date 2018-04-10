@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { AppConfig } from './../../config/app.config';
 import { Following } from '../../shared/following.model';
+import { ProgressBarService } from './../../services/progress-bar.service';
+
 
 @Component({
   selector: 'app-following',
@@ -17,9 +19,16 @@ export class FollowingComponent implements OnInit {
   public cols: Observable<number>;
   private followingEndPoint: string;
   private username: string;
+  public progressBarMode: string;
 
   constructor(private _githubService :GithubService,  
-              private observableMedia: ObservableMedia) {
+              private observableMedia: ObservableMedia,
+              private progressBarService: ProgressBarService
+            ) {
+               
+               this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+                  this.progressBarMode = mode;
+                })
                 
                 this.followingEndPoint = AppConfig.following;
                 this.username = AppConfig.username;
