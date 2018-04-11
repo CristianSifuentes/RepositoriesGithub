@@ -41,3 +41,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## 1 Columna
 ![imagen6](https://user-images.githubusercontent.com/6728801/38626960-654d29a2-3d73-11e8-8b6f-8af9c9863c55.png)
 
+## Angular Common Http
+![imagen2](https://user-images.githubusercontent.com/6728801/38627248-289e2eec-3d74-11e8-9985-17a3cccf57a9.png)
+
+
