@@ -29,3 +29,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Angular Material 5 con Flex-layout
 
 ![imagen1](https://user-images.githubusercontent.com/6728801/38626545-6fd491a4-3d72-11e8-8770-91bde542f0a2.png)
+
+## Uso de ObservableMedia de Flex-layout
+
+## 4 Columnas
+![imagen3](https://user-images.githubusercontent.com/6728801/38626956-6519b450-3d73-11e8-9f7c-77f20c423373.png)
+
+## 2 Columnas
+![imagen5](https://user-images.githubusercontent.com/6728801/38626959-653560c4-3d73-11e8-989d-830e7ec4ae24.png)
+
+## 1 Columna
+![imagen6](https://user-images.githubusercontent.com/6728801/38626960-654d29a2-3d73-11e8-8b6f-8af9c9863c55.png)
+
