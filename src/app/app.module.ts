@@ -12,13 +12,15 @@ import { HomeComponent } from './components/home/home.component';
 import { GithubService } from './services/github.service';
 import { ProgressBarService } from './services/progress-bar.service';
 import { FollowingComponent } from './components/following/following.component';
+import { Dialog } from './components/popup/popup.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FollowingComponent
+    FollowingComponent,
+    Dialog
   ],
   imports: [
     BrowserModule,
@@ -26,9 +28,11 @@ import { FollowingComponent } from './components/following/following.component';
     MaterialModule,
     FlexLayoutModule,
     BrowserAnimationsModule, 
-    NoopAnimationsModule, AppRoutingModule
+    NoopAnimationsModule, 
+    AppRoutingModule
 
   ],
+  entryComponents: [Dialog],
   providers: [GithubService, ProgressBarService],
   bootstrap: [AppComponent]
 })

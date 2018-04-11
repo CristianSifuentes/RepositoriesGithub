@@ -8,6 +8,8 @@ import {
   MatChipsModule,
   MatDatepickerModule,
   MatDialogModule,
+  MatDialogRef, 
+  MAT_DIALOG_DATA,
   MatDividerModule,
   MatExpansionModule,
   MatGridListModule,
@@ -67,7 +69,8 @@ import {
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    
   ],
   exports: [
     MatAutocompleteModule,

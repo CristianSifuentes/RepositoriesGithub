@@ -7,5 +7,6 @@ export interface IAppConfig {
   snackBarDuration: number;
   repositoryURL: string;
   following: string,
-  repos: string
+  repos: string, 
+  information : string
 }

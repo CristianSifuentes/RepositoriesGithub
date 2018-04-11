@@ -18,5 +18,6 @@ export const AppConfig: IAppConfig = {
   snackBarDuration: 3000,
   repositoryURL: 'https://github.com/CristianSifuentes/RepositoriesGithub',
   following: 'following',
-  repos: 'repos'
+  repos: 'repos', 
+  information : 'Soy javascript full stack developer, tengo desarrollando software 6 años y soy un apasionado de la tecnología'
 };

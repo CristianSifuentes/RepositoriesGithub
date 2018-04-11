@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { GithubService } from './services/github.service';
 import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
@@ -6,6 +6,8 @@ import 'rxjs/add/observable/of';
 import { ProgressBarService } from './services/progress-bar.service';
 import { Profile } from './shared/profile.model';
 import { AppConfig } from './config/app.config';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { Dialog } from './components/popup/popup.component';
 
 @Component({
   selector: 'app-root',
@@ -21,11 +23,14 @@ export class AppComponent implements OnInit {
   private username: string;
   private client_id: string;
   private client_secret: string;
+  public dialogRef: MatDialogRef<Dialog>;
+  public information: string;
 
   constructor(
     private _githubService :GithubService, 
     private observableMedia: ObservableMedia,
-    private progressBarService: ProgressBarService
+    private progressBarService: ProgressBarService,
+    public dialog: MatDialog
   ){
           this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
             this.progressBarMode = mode;
@@ -40,6 +45,11 @@ export class AppComponent implements OnInit {
             err => console.error(err),
             () => console.log('done loading profile')
           );
+
+          this.information = AppConfig.information;
+          
+
+          
   }
 
 
@@ -86,5 +96,17 @@ export class AppComponent implements OnInit {
             return this.open_profile = Observable.of(false);
         }
       });
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(Dialog, {
+      width: '250px',
+      data: { information: this.information }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    
+    });
   }
 }
