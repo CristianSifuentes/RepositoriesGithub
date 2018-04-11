@@ -5,7 +5,8 @@ export class Profile {
                 public name: string,
                 public location: string,
                 public email: string,
-                public bio: string
+                public bio: string,
+                public html_url: string
             ) {
     }
   }

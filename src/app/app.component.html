@@ -35,7 +35,7 @@
           <mat-card-title>
             <div fxLayout="row" fxLayoutAlign="center center">
               <div *ngIf="profile;else other_content">
-                <img class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}">
+                <img (click)="onNavigate(profile.html_url)" class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}">
               </div>
               <ng-template #other_content>
                 <mat-icon>person</mat-icon>
@@ -78,7 +78,7 @@
             <mat-card-title>
               <div fxLayout="row" fxLayoutAlign="center center">
                 <div *ngIf="profile;else other_content">
-                  <img class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}">
+                  <img (click)="onNavigate(profile.html_url)" class="avatar-wrapper" fxLayoutAlign="center center" mat-card-avatar src="{{ profile.avatar_url }}">
                 </div>
                 <ng-template #other_content>
                   <mat-icon>person</mat-icon>
