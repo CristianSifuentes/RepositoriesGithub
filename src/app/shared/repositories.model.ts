@@ -4,7 +4,9 @@ export class Repositories {
                 public name: string,
                 public language: string,
                 public url: string,
-                public svn_url: string
+                public svn_url: string,
+                public watchers: string, 
+                public forks: string
             ) {
     }
   }

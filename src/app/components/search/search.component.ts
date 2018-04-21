@@ -38,7 +38,6 @@ export class SearchComponent implements OnInit {
         this.repos = repos;
     });*/
 
-    this.username  = AppConfig.username;
     this.client_id  = AppConfig.client_id;
     this.client_secret  = AppConfig.client_secret;
     this.repositoriesEndPoint = AppConfig.repos;
@@ -52,7 +51,7 @@ export class SearchComponent implements OnInit {
     );
 
     this._githubService.getRepositories(this.username, this.repositoriesEndPoint).subscribe(
-      (repositories: Repositories[]) => {
+      (repositories: any) => {
         this.repositories = repositories;
         },
       err => console.error(err), 
