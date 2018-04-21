@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import {FormsModule} from '@angular/forms';
 
 import { GithubService } from './services/github.service';
 import { ProgressBarService } from './services/progress-bar.service';
@@ -31,7 +32,8 @@ import { SearchComponent } from './components/search/search.component';
     FlexLayoutModule,
     BrowserAnimationsModule, 
     NoopAnimationsModule, 
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
 
   ],
   entryComponents: [Dialog],

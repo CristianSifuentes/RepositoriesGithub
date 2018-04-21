@@ -16,7 +16,7 @@ import { Dialog } from './components/popup/popup.component';
 })
 export class AppComponent implements OnInit {
   public title = 'My Github App';
-  public profile: Profile = null;;
+  public profile: Profile = null;
   public open: Observable<boolean>;
   public open_profile: Observable<boolean>;
   public progressBarMode: string;

@@ -1,3 +1,30 @@
-<p>
-  search works!
-</p>
+<!--section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+  <div fxLayout="row" fxLayoutAlign="center" class="card-container">
+    <div fxFlex="100%" fxFlex.mat="100%" fxFlex.lg="100%">
+      <mat-card *ngFor="let photo of dataList">
+        <mat-card-header>
+          <img mat-card-avatar (click)="seeAllPhotosUser(photo);" src="{{url_user + 'getimageuser/' + photo.user._id}}">
+          <mat-card-title>{{ photo.user.name + ' ' + photo.user.lastname}}</mat-card-title>
+          <mat-card-subtitle>{{ photo.name }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{url + 'getimage/' + photo.image}}" alt="{{photo.name}}">
+        <mat-card-content>
+          {{photo.description}}
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section-->
+<form>
+  <div class="form-group">
+      <input type="text" class="form-control" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">    
+  </div>    
+</form>
+
+<div *ngFor="let repo of repositories">
+<p>Entro</p>
+</div>
