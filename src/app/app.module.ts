@@ -13,6 +13,7 @@ import { GithubService } from './services/github.service';
 import { ProgressBarService } from './services/progress-bar.service';
 import { FollowingComponent } from './components/following/following.component';
 import { Dialog } from './components/popup/popup.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { Dialog } from './components/popup/popup.component';
     AppComponent,
     HomeComponent,
     FollowingComponent,
-    Dialog
+    Dialog,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
