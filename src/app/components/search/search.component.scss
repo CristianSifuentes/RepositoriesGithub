@@ -33,6 +33,16 @@
       .search-bar * { color: white !important; }
       .search-bar input { border-bottom-color: white; }
       .md-errors-spacer { display:none; }
+
+      .example-container {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .example-container > * {
+        width: 100%;
+      }
+      
       mat-card {
           background-color: #fff;                 
            margin: 40px;
