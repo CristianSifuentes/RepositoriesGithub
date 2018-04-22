@@ -29,7 +29,10 @@
       .fill-remaining-space {
           flex: 1 1 auto;
       }
-  
+      .search-bar { background-color: #222; }
+      .search-bar * { color: white !important; }
+      .search-bar input { border-bottom-color: white; }
+      .md-errors-spacer { display:none; }
       mat-card {
           background-color: #fff;                 
            margin: 40px;
@@ -41,6 +44,14 @@
              }
   
        }
+       .example-icon {
+        padding: 0 14px;
+      }
+      
+      .example-spacer {
+        flex: 1 1 auto;
+      }
+      
        .progress-spinner {
           margin: 0 auto;
         }

@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   public username:string;
   public profile: Profile = null;
   private repositoriesEndPoint: string;
-
+  public myVar: boolean = false;
 
   constructor(private _githubService :GithubService ) { }
 
@@ -27,16 +27,6 @@ export class SearchComponent implements OnInit {
   }
 
   search(){
-   /* this._githubService.updateUsername(this.username);*/
-    
-    /*this._githubService.getUser().subscribe(user => {
-        //console.log(user);
-        this.user = user;
-    });
-    
-    this._githubService.getRepos().subscribe(repos => {
-        this.repos = repos;
-    });*/
 
     this.client_id  = AppConfig.client_id;
     this.client_secret  = AppConfig.client_secret;
@@ -61,4 +51,11 @@ export class SearchComponent implements OnInit {
     
 
 }
+
+  onSeach(){
+    this.myVar = true;
+  }
+  onCancelSeach(){
+    this.myVar =false;
+  }
 }
