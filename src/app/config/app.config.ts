@@ -10,7 +10,7 @@ export const AppConfig: IAppConfig = {
     error404: '404'
   },
   endpoints: {
-    repositories: 'https://api.github.com/users'
+    repositories: 'https://api.github.com/'
   },
   username: 'CristianSifuentes',
   client_id: '29431fe2ad6a2b43bf4c',
@@ -19,5 +19,6 @@ export const AppConfig: IAppConfig = {
   repositoryURL: 'https://github.com/CristianSifuentes/RepositoriesGithub',
   following: 'following',
   repos: 'repos', 
+  issues: 'issues',
   information : 'Soy javascript full stack developer, tengo desarrollando software 6 años y soy un apasionado de la tecnología'
 };

@@ -4,7 +4,6 @@ import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { AppConfig } from './../../config/app.config';
-import { Following } from '../../shared/following.model';
 import { ProgressBarService } from './../../services/progress-bar.service';
 
 @Component({
@@ -14,12 +13,12 @@ import { ProgressBarService } from './../../services/progress-bar.service';
 })
 export class IssuesComponent implements OnInit {
 
-  public following: Following[];
-  public cols: Observable<number>;
-  private followingEndPoint: string;
+  public issues: any;
+  private issuesEndPoint: string;
   private username: string;
   public progressBarMode: string;
   public panelOpenState: boolean = false;
+  public repositorie: string;
 
   constructor(private _githubService :GithubService,  
               private observableMedia: ObservableMedia,
@@ -30,34 +29,21 @@ export class IssuesComponent implements OnInit {
                   this.progressBarMode = mode;
                 })
                 
-                this.followingEndPoint = AppConfig.following;
-                this.username = AppConfig.username;
+                this.issuesEndPoint = AppConfig.issues;
+                this.username = 'StephenFluin';
+                this.repositorie = 'angular-update-guide';
 
-    this._githubService.getFollowing(this.username, this.followingEndPoint).subscribe(   
-      (following: Following[]) => {
-        this.following = following;
-        },
-      err => console.error(err),  
-      () => console.log('done loading following')
-    );
+                      this._githubService.getIssues(this.username, this.repositorie, this.issuesEndPoint).subscribe(   
+                        (issues: any) => {
+                          this.issues = issues;
+                          },
+                        err => console.error(err),  
+                        () => console.log('done loading issues')
+                      );
 
    }
 
   ngOnInit() {
-  }
-
-  public step = 0;
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
   }
 
 }

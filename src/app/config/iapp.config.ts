@@ -8,5 +8,6 @@ export interface IAppConfig {
   repositoryURL: string;
   following: string,
   repos: string, 
-  information : string
+  information : string,
+  issues: string,
 }

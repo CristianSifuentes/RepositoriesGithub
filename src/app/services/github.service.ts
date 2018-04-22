@@ -33,7 +33,7 @@ export class GithubService {
          client_secret: string): Observable<Profile> {
         this.request$.emit('starting');
         return this.http
-          .get(this.urlGithub+"/"+ username +"?client_id="+client_id+"&client_secret="+client_secret)
+          .get(this.urlGithub+"users/"+ username +"?client_id="+client_id+"&client_secret="+client_secret)
           .map(response => {
             this.request$.emit('finished');
             return response;
@@ -48,7 +48,7 @@ export class GithubService {
     ): Observable<Following[]> {
       this.request$.emit('starting');
       return this.http
-        .get(this.urlGithub+"/"+ username +"/"+endpoint)
+        .get(this.urlGithub+"users/"+ username +"/"+endpoint)
         .map(response => {
           this.request$.emit('finished');
           return response;
@@ -62,7 +62,7 @@ export class GithubService {
       endpoint:string): Observable<Repositories[]> {
       this.request$.emit('starting');
       return this.http
-      .get(this.urlGithub+"/"+ username +"/"+endpoint)
+      .get(this.urlGithub+"users/"+ username +"/"+endpoint)
         .map(response => {
           this.request$.emit('finished');
           return response;
@@ -75,7 +75,7 @@ export class GithubService {
       endpoint:string):any {
       this.request$.emit('starting');
       return this.http
-      .get(this.urlGithub+"/"+ username +"/"+""+ repositorie +"/"+endpoint)
+      .get(this.urlGithub+"repos/"+ username +"/"+""+ repositorie +"/"+endpoint)
         .map(response => {
           this.request$.emit('finished');
           return response;
