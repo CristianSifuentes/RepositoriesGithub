@@ -9,18 +9,19 @@
 
       <mat-card *ngFor="let repo of repositories">
         <mat-card-header>
-          <img mat-card-avatar (click)="seeAllPhotosUser(photo);" src="{{ repo.owner.avatar_url }}">
-          <!--mat-card-title>{{ repo.user.name + ' ' + photo.user.lastname}}</mat-card-title-->
+          <img mat-card-avatar src="{{ repo.owner.avatar_url }}">
+          <mat-card-title>{{repo.owner.login}}</mat-card-title>
           <mat-card-subtitle>{{ repo.name }}</mat-card-subtitle>
         </mat-card-header>
-        <!--img mat-card-image src="{{url + 'getimage/' + photo.image}}" alt="{{photo.name}}"-->
         <mat-card-content>
           {{repo.description}}
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
+        <mat-chip-list>
+          <mat-chip>One fish</mat-chip>
+          <mat-chip color="primary" selected="true"><span matTooltip="Ver los lenguajes!">Lenguajes</span></mat-chip>
+          <mat-chip color="accent" selected="true"><span matTooltip="Ver los issues!"> issues {{ repo.open_issues}}</span>
+           </mat-chip>
+        </mat-chip-list>
       </mat-card>
 
     </div>
