@@ -70,5 +70,18 @@ export class GithubService {
         .catch(error => this.handleError(error));
     }
 
+    getIssues(username: string,
+      repositorie:string,
+      endpoint:string):any {
+      this.request$.emit('starting');
+      return this.http
+      .get(this.urlGithub+"/"+ username +"/"+""+ repositorie +"/"+endpoint)
+        .map(response => {
+          this.request$.emit('finished');
+          return response;
+        })
+        .catch(error => this.handleError(error));
+    }
+
 }
 

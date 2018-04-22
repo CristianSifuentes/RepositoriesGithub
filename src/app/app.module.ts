@@ -15,6 +15,7 @@ import { ProgressBarService } from './services/progress-bar.service';
 import { FollowingComponent } from './components/following/following.component';
 import { Dialog } from './components/popup/popup.component';
 import { SearchComponent } from './components/search/search.component';
+import { IssuesComponent } from './components/issues/issues.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SearchComponent } from './components/search/search.component';
     HomeComponent,
     FollowingComponent,
     Dialog,
-    SearchComponent
+    SearchComponent,
+    IssuesComponent
   ],
   imports: [
     BrowserModule,
