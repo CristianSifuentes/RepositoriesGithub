@@ -100,11 +100,16 @@
           <mat-panel-title>
             {{issue.title}}
           </mat-panel-title>
-          <mat-panel-description>
-            Currently I am {{panelOpenState ? 'open' : 'closed'}}
-          </mat-panel-description>
+
         </mat-expansion-panel-header>
-        <p>I'm visible because I am open</p>
+        <p>{{issue.body}}</p>
+        <mat-chip-list>
+          <mat-chip ><span matTooltip="Número de issue">{{issue.number}}</span></mat-chip>
+          <mat-chip color="primary" selected="true"><span matTooltip="Fecha de creación">{{issue.created_at  | date: 'dd/MM/yyyy'}}</span></mat-chip>
+          <mat-chip color="accent" selected="true"><span matTooltip="Fecha de actualización">{{issue.updated_at | date: 'dd/MM/yyyy'}}</span>
+           </mat-chip>
+        </mat-chip-list>
+
       </mat-expansion-panel>
     </mat-accordion>
     
