@@ -58,4 +58,9 @@ export class SearchComponent implements OnInit {
   onCancelSeach(){
     this.myVar =false;
   }
+
+  onViewDetail(repo: any){
+    alert('Entro' + repo);
+
+  }
 }

@@ -63,8 +63,8 @@
         </mat-card-content>
         <mat-chip-list>
           <mat-chip>One fish</mat-chip>
-          <mat-chip color="primary" selected="true"><span matTooltip="Ver los lenguajes!">Lenguajes</span></mat-chip>
-          <mat-chip color="accent" selected="true"><span matTooltip="Ver los issues!"> issues {{ repo.open_issues}}</span>
+          <mat-chip color="primary"  selected="true"><span matTooltip="Ver los lenguajes!">Lenguajes</span></mat-chip>
+          <mat-chip color="accent"  (click)="onViewDetail(repo.name)" selected="true"><span matTooltip="Ver los issues!"> issues {{ repo.open_issues}}</span>
            </mat-chip>
         </mat-chip-list>
       </mat-card>
