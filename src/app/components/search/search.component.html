@@ -1,8 +1,8 @@
 <section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
   <div fxLayout="row" fxLayoutAlign="center" class="card-container">
-    <div fxFlex="100%" fxFlex.md="100%" fxFlex.lg="100%">
-       
-      <mat-toolbar color="primary" class="mat-elevation-z16 fixed-header" *ngIf="!myVar">
+    <div id="editSection" fxFlex="100%" fxFlex.md="100%" fxFlex.lg="100%">
+        
+      <mat-toolbar  color="primary" class="mat-elevation-z16 fixed-header" *ngIf="!myVar">
           <mat-toolbar-row >
               <span>Buscar</span>
               <span class="example-spacer"></span>
@@ -29,43 +29,6 @@
           </button>
         </mat-toolbar-row>
         </mat-toolbar>
-
-      <!--
-      <mat-toolbar color="primary" class="fixed-header">
-          <div *ngIf="!myVar">
-              <mat-toolbar-row >
-                  <span>Buscar</span>
-                  <span class="example-spacer"></span>
-                  <button mat-raised-button color="primary" class="example-icon" (click)="onSeach()">
-                      <mat-icon>search</mat-icon>
-                      <span>Buscar</span>
-                  </button>
-                </mat-toolbar-row>
-           </div>
-
-           <div *ngIf="myVar">
-
-              <mat-toolbar-row class="search-bar">
-                 
-                  <button mat-icon-button >
-                      <mat-icon>search</mat-icon>
-                  </button>
-  
-                  <mat-input-container style="width: 100%;">  
-                    <mat-form-field style="width: 100%;">
-                        <input  style="width: 100%;" matInput  [(ngModel)]="username" name="username" (blur)="search()">
-                    </mat-form-field>
-                  </mat-input-container>
-                  <button mat-icon-button (click)="onCancelSeach()" >
-                      <mat-icon>close</mat-icon>
-                  </button>
-                </mat-toolbar-row>
-
-           </div>
-            
-          </mat-toolbar>
-          -->
-
      
           <mat-card *ngFor="let repo of repositories" flex>
               <mat-card-header>
@@ -83,9 +46,16 @@
                 </mat-chip>
               </mat-chip-list>
           </mat-card>
+          
+    
 
     </div>
+    <div (click)="gotoTop()" 
+          class="btt-btn">
+          <i class="material-icons">&#xE316;</i>
+        </div>
   </div>
+  
 </section>
 
 

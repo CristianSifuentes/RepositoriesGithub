@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { GithubService } from './../../services/github.service';
 import { AppConfig } from './../../config/app.config';
 import { Profile } from './../../shared/profile.model';
@@ -8,7 +8,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  providers: [
+    { provide: Window, useValue: window }  
+  ]
 })
 export class SearchComponent implements OnInit {
 
@@ -23,7 +26,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private _githubService :GithubService,   
           private _route: ActivatedRoute,
-          private _router: Router) { }
+          private _router: Router,  @Inject(Window) private window: Window) { }
 
   ngOnInit() {
   }
@@ -65,4 +68,9 @@ export class SearchComponent implements OnInit {
     this._router.navigate(['/issues'], { queryParams: { user : this.username, repo: repo}});
 
   }
+  gotoTop(){
+    
+    this.window.document.getElementById('editSection').scrollIntoView();
+  }
+ 
 }
