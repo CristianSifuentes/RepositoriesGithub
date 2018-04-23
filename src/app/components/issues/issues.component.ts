@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { AppConfig } from './../../config/app.config';
 import { ProgressBarService } from './../../services/progress-bar.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-issues',
@@ -22,10 +23,12 @@ export class IssuesComponent implements OnInit {
 
   constructor(private _githubService :GithubService,  
               private observableMedia: ObservableMedia,
-              private progressBarService: ProgressBarService
+              private progressBarService: ProgressBarService,
+              private _route: ActivatedRoute,
+                 private _router: Router
             ) {
                
-               this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+               /*this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
                   this.progressBarMode = mode;
                 })
                 
@@ -39,11 +42,30 @@ export class IssuesComponent implements OnInit {
                           },
                         err => console.error(err),  
                         () => console.log('done loading issues')
-                      );
+                      );*/
 
    }
 
   ngOnInit() {
+
+     let user = this._route.snapshot.queryParamMap.get('user');
+     let repo = this._route.snapshot.queryParamMap.get('repo');
+
+     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+      this.progressBarMode = mode;
+    })
+    
+    this.issuesEndPoint = AppConfig.issues;
+    this.username = user;
+    this.repositorie = repo;
+
+          this._githubService.getIssues(this.username, this.repositorie, this.issuesEndPoint).subscribe(   
+            (issues: any) => {
+              this.issues = issues;
+              },
+            err => console.error(err),  
+            () => console.log('done loading issues')
+          );
   }
 
 }

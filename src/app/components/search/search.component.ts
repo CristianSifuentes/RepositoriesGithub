@@ -3,7 +3,7 @@ import { GithubService } from './../../services/github.service';
 import { AppConfig } from './../../config/app.config';
 import { Profile } from './../../shared/profile.model';
 import { Repositories } from './../../shared/repositories.model';
-
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -21,7 +21,9 @@ export class SearchComponent implements OnInit {
   private repositoriesEndPoint: string;
   public myVar: boolean = false;
 
-  constructor(private _githubService :GithubService ) { }
+  constructor(private _githubService :GithubService,   
+          private _route: ActivatedRoute,
+          private _router: Router) { }
 
   ngOnInit() {
   }
@@ -60,7 +62,7 @@ export class SearchComponent implements OnInit {
   }
 
   onViewDetail(repo: any){
-    alert('Entro' + repo);
+    this._router.navigate(['/issues'], { queryParams: { user : this.username, repo: repo}});
 
   }
 }
