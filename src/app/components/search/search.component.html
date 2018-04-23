@@ -2,7 +2,7 @@
   <div fxLayout="row" fxLayoutAlign="center" class="card-container">
     <div fxFlex="100%" fxFlex.md="100%" fxFlex.lg="100%">
        
-      <mat-toolbar color="accent">
+      <mat-toolbar color="accent" class="fixed-header">
           <div *ngIf="!myVar">
               <mat-toolbar-row >
                   <span>Second Line</span>
@@ -52,7 +52,7 @@
             </div>    
           </form-->
 
-      <mat-card *ngFor="let repo of repositories">
+      <mat-card *ngFor="let repo of repositories" flex>
         <mat-card-header>
           <img mat-card-avatar src="{{ repo.owner.avatar_url }}">
           <mat-card-title>{{repo.owner.login}}</mat-card-title>
