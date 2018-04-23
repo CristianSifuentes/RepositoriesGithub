@@ -2,17 +2,15 @@
   <div fxLayout="row" fxLayoutAlign="center" class="card-container">
     <div fxFlex="100%" fxFlex.md="100%" fxFlex.lg="100%">
        
-      <mat-toolbar color="accent" class="fixed-header">
+      <mat-toolbar color="primary" class="fixed-header">
           <div *ngIf="!myVar">
               <mat-toolbar-row >
-                  <span>Second Line</span>
+                  <span>Buscar</span>
                   <span class="example-spacer"></span>
-                  <button mat-raised-button class="example-icon" (click)="onSeach()">
+                  <button mat-raised-button color="primary" class="example-icon" (click)="onSeach()">
                       <mat-icon>search</mat-icon>
-                      <span>Search</span>
+                      <span>Buscar</span>
                   </button>
-
-                  <!--mat-icon class="example-icon">verified_user</mat-icon-->
                 </mat-toolbar-row>
            </div>
 
@@ -23,10 +21,11 @@
                   <button mat-icon-button >
                       <mat-icon>search</mat-icon>
                   </button>
-            
-                  <mat-input-container>  
-                    <mat-form-field>
-                        <input matInput placeholder="Input"  [(ngModel)]="username" name="username" (keyup)="search()">
+                  <!--(keyup)="search()"-->
+                  <!--(blur)=="search()"-->
+                  <mat-input-container style="width: 100%;">  
+                    <mat-form-field style="width: 100%;">
+                        <input  style="width: 100%;" matInput  [(ngModel)]="username" name="username" (blur)="search()">
                     </mat-form-field>
                   </mat-input-container>
            
@@ -40,9 +39,6 @@
 
            </div>
             
-     
-          
-
           </mat-toolbar>
           
 
@@ -52,7 +48,8 @@
             </div>    
           </form-->
 
-      <mat-card *ngFor="let repo of repositories" flex>
+     
+          <mat-card *ngFor="let repo of repositories" flex>
         <mat-card-header>
           <img mat-card-avatar src="{{ repo.owner.avatar_url }}">
           <mat-card-title>{{repo.owner.login}}</mat-card-title>
