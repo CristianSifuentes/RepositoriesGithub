@@ -40,8 +40,8 @@
                 {{repo.description}}
               </mat-card-content>
               <mat-chip-list>
-                <mat-chip>One fish</mat-chip>
-                <mat-chip color="primary"  selected="true"><span matTooltip="Ver los lenguajes!">Lenguajes</span></mat-chip>
+                <mat-chip><span matTooltip="Última actualización">Última actualización {{repo.updated_at | date: 'dd/MM/yyyy'}}</span></mat-chip>
+                <mat-chip color="primary"  selected="true"><span matTooltip="Lenguaje principal!">language {{ repo.language}}</span></mat-chip>
                 <mat-chip color="accent"  (click)="onViewDetail(repo.name)" selected="true"><span matTooltip="Ver los issues!"> issues {{ repo.open_issues}}</span>
                 </mat-chip>
               </mat-chip-list>
