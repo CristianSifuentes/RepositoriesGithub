@@ -4,14 +4,18 @@ import { AppConfig } from './../../config/app.config';
 import { Profile } from './../../shared/profile.model';
 import { Repositories } from './../../shared/repositories.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { InjectionToken } from '@angular/core';
+export const Window_Injection = new InjectionToken('window.injection');
+
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  providers: [
+  /*providers: [
     { provide: Window, useValue: window }  
-  ]
+  ]*/
+  providers: [{ provide: Window_Injection, useValue: window }]
 })
 export class SearchComponent implements OnInit {
 
@@ -28,7 +32,7 @@ export class SearchComponent implements OnInit {
           private _githubService :GithubService,   
           private _route: ActivatedRoute,
           private _router: Router, 
-           @Inject(Window) private window: Window) { }
+          @Inject(Window_Injection) private window) { }
 
   ngOnInit() {
   }
