@@ -27,8 +27,8 @@ export class SearchComponent implements OnInit {
   constructor(
           private _githubService :GithubService,   
           private _route: ActivatedRoute,
-          private _router: Router/*, 
-  @Inject(Window) private window: Window*/) { }
+          private _router: Router, 
+           @Inject(Window) private window: Window) { }
 
   ngOnInit() {
   }
@@ -72,7 +72,7 @@ export class SearchComponent implements OnInit {
   }
   gotoTop(){
     
-    /*this.window.document.getElementById('editSection').scrollIntoView();*/
+    this.window.document.getElementById('editSection').scrollIntoView();
   }
  
 }
