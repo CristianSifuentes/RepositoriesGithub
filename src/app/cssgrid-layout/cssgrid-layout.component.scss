@@ -5,6 +5,7 @@
     // grid-template-columns: 80% auto;
     // grid-template-rows: 20% 10% 60% ;
     grid-template-areas: 'header header' 'menu menu' 'content sidebar' 'footer footer';// here is the grid template areas
+    // grid-template-rows: 30px 30px 1fr 30px; // here is the grid template rows
     //auto adapt to space
     // grid-template-rows: auto ;
     //justify-content: stretch; //flex-end flex-center space-between space-around space-evenly

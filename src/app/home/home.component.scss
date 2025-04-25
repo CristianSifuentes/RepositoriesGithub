@@ -1,3 +1,27 @@
 mat-grid-tile {
   background: lightblue;
 }
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto auto; // here is the grid template columns 4 columns
+  // grid-template-columns: 80% auto;
+  grid-template-rows: 20% 10% 60%;
+  grid-template-areas: 'header header' 'menu menu' 'content sidebar' 'footer footer'; // here is the grid template areas
+  // grid-template-rows: 30px 30px 1fr 30px; // here is the grid template rows
+  //auto adapt to space
+  // justify-content: stretch; //flex-end flex-center space-between space-around space-evenly
+  width: 80%;
+  margin: 0 auto;
+  background-color: lightgreen;
+  padding: 20px;
+  border: 1px solid black;
+}

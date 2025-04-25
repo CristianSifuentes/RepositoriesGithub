@@ -8,8 +8,7 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   imports: [MatGridListModule, MatCardModule, MatButtonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-
+  standalone: true
 })
 export class HomeComponent {
 
