@@ -14,8 +14,8 @@ body {
 }
 
 .toolbar {
-  background: #673ab7;
-  color: white;
+  // background: #673ab7;
+  // color: white;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -24,6 +24,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+
+
 }
 
 .menu-icon {
