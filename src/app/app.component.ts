@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 // toolbar
 import {MatIconModule} from '@angular/material/icon';
@@ -9,15 +9,29 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 //matcard
 import {MatCardModule} from '@angular/material/card';
+import { environment } from '@environments/environment';
+import { GifsService } from './services/gifs.services';
+// GridList
+import {MatGridListModule} from '@angular/material/grid-list';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule, MatGridListModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'you-app-name';
   protected readonly isMobile = signal(true);
+  envs = environment;
+  gifsService = inject(GifsService);
+  public cols: Observable<number> | undefined;
+
+
+  onNavigate(url: any){
+    if (url) { window.open(url, "_blank");}
+
+  }
 
 }
