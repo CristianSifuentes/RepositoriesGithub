@@ -10,7 +10,7 @@ import {MatListModule} from '@angular/material/list';
 //matcard
 import {MatCardModule} from '@angular/material/card';
 import { environment } from '@environments/environment';
-import { GifsService } from './services/gifs.services';
+import { GithubService } from './services/github.services';
 // GridList
 import {MatGridListModule} from '@angular/material/grid-list';
 import { Observable } from 'rxjs';
@@ -25,13 +25,12 @@ export class AppComponent {
   title = 'you-app-name';
   protected readonly isMobile = signal(true);
   envs = environment;
-  gifsService = inject(GifsService);
+  githubService = inject(GithubService);
   public cols: Observable<number> | undefined;
 
 
   onNavigate(url: any){
     if (url) { window.open(url, "_blank");}
-
   }
 
 }

@@ -1,14 +1,14 @@
 import { Following } from '@/interfaces/following.github.interfaces';
 import type { GiphyResponse } from '@/interfaces/giphy.interfaces';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '@environments/environment';
 
 @Injectable({ providedIn: 'root' })
-export class GifsService {
+export class GithubService {
 
   private http = inject(HttpClient);
-
+  following = signal<Following>([]);
 
 
    constructor(){
@@ -39,6 +39,8 @@ export class GifsService {
         .get<Following>(`${environment.endpoints.url}users/CristianSifuentes/repos`)
         .subscribe((resp) => {
           console.log({ resp });
+          this.following.set(resp);
+
         });
 
       }

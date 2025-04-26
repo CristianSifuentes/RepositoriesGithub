@@ -71,7 +71,12 @@
   <main class="main-content">
     <div class="card-grid">
       <mat-grid-list cols="2" gutterSize="15px" class="grid">
-        <mat-grid-tile *ngFor="let follow of following">
+
+        @for (follow of following(); track follow) {
+
+
+          }
+        <!-- <mat-grid-tile *ngFor="let follow of following">
             <img src="{{ follow.avatar_url }}" alt="follow of the super follow {{ follow.login }}">
             <mat-grid-tile-footer>
 
@@ -84,7 +89,7 @@
                </button>
 
             </mat-grid-tile-footer>
-        </mat-grid-tile>
+        </mat-grid-tile> -->
     </mat-grid-list>
 
 <!--
