@@ -79,7 +79,7 @@ export class GithubService {
 
 
       this.http
-        .get<Following>(`${environment.endpoints.url}users/CristianSifuentes/repos`)
+        .get<Following>(`${environment.endpoints.url}users/CristianSifuentes/following`)
         .subscribe((resp) => {
           // console.log({ resp });
           const followers = GithubMapper.mapFollowing(resp);
