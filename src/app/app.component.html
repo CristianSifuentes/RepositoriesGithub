@@ -71,12 +71,31 @@
   <main class="main-content">
     <div class="card-grid">
       <mat-grid-list cols="2" gutterSize="15px" class="grid">
+        @for (group of githubService.trendingGihubGroup(); track $index) {
 
-        @for (follow of following(); track follow) {
+          @for (follow of group; track follow.id) {
 
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="grid-tile">
+              <img src="{{ follow.avatar_url }}" alt="follow of the super follow {{ follow.login }}">
+              <mat-grid-tile-footer>
+                <h3 matLine> {{ follow.login }} </h3>
+                <p matLine>
+                  <span> {{ follow.html_url  }} </span>
+                </p>
+                <button mat-icon-button (click)="onNavigate(follow.html_url)">
+                  <mat-icon>subdirectory_arrow_right</mat-icon>
+                </button>
+              </mat-grid-tile-footer>
+            </mat-grid-tile>
 
           }
-        <!-- <mat-grid-tile *ngFor="let follow of following">
+
+
+
+      }
+    </mat-grid-list>
+      <!--
+        <mat-grid-tile *ngFor="let follow of follow()">
             <img src="{{ follow.avatar_url }}" alt="follow of the super follow {{ follow.login }}">
             <mat-grid-tile-footer>
 
@@ -89,10 +108,10 @@
                </button>
 
             </mat-grid-tile-footer>
-        </mat-grid-tile> -->
-    </mat-grid-list>
+        </mat-grid-tile>
+ -->
 
-<!--
+     <!--
       <mat-card class="card" appearance="outlined">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>

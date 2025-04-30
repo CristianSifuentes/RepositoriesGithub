@@ -1,5 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, computed, inject, signal } from '@angular/core';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 // toolbar
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -13,7 +13,10 @@ import { environment } from '@environments/environment';
 import { GithubService } from './services/github.services';
 // GridList
 import {MatGridListModule} from '@angular/material/grid-list';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Follower } from './interfaces/follower.github.interface';
+import { toSignal } from '@angular/core/rxjs-interop';
+
 
 @Component({
   selector: 'app-root',
@@ -27,6 +30,12 @@ export class AppComponent {
   envs = environment;
   githubService = inject(GithubService);
   public cols: Observable<number> | undefined;
+
+  query = toSignal(
+    inject(ActivatedRoute).params.pipe(map((params) => params['query']))
+  );
+
+  // follow = computed(() => this.githubService.getHistoryFollow(this.query()));
 
 
   onNavigate(url: any){
